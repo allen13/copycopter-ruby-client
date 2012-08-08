@@ -101,7 +101,7 @@ module CopycopterClient
       client.download do |downloaded_blurbs|
         downloaded_blurbs.reject! { |key, value| value == '' }
         lock { @blurbs = downloaded_blurbs }
-        ::Rails.cache.clear
+        Rails.clear_cache
       end
     rescue ConnectionError => error
       logger.error error.message
