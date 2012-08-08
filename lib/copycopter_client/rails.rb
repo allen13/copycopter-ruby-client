@@ -11,6 +11,10 @@ module CopycopterClient
         config.middleware       = ::Rails.configuration.middleware
       end
     end
+    
+    def self.clear_cache
+      ::Rails.cache.clear
+    end
   end
 end
 
